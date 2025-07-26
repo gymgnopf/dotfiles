@@ -23,7 +23,7 @@
 # is used in the bar {} block below.
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
-font pango: Fira Code Medium 11
+font pango: FiraCode Regular 19
 # set the mod key to the winkey:
 set $mod Mod4
 
@@ -143,25 +143,15 @@ bindcode $mod+Shift+90 	 move container to workspace  $ws10
 
 # resize window (you can also use the mouse for that):
 mode "resize" {
-# These bindings trigger as soon as you enter the resize mode
-# Pressing left will shrink the window's width.
-# Pressing right will grow the window's width.
-# Pressing up will shrink the window's height.
-# Pressing down will grow the window's height
-        #bindsym h resize shrink width 10 px or 10 ppt
-        #bindsym j resize grow height 10 px or 10 ppt
-        #bindsym k resize shrink height 10 px or 10 ppt
-        #bindsym l resize grow width 10 px or 10 ppt
+    # same bindings, but for the arrow keys
+    bindsym Left resize shrink width 10 px or 10 ppt
+    bindsym Down resize grow height 10 px or 10 ppt
+    bindsym Up resize shrink height 10 px or 10 ppt
+    bindsym Right resize grow width 10 px or 10 ppt
 
-# same bindings, but for the arrow keys
-        bindsym Left resize shrink width 10 px or 10 ppt
-        bindsym Down resize grow height 10 px or 10 ppt
-        bindsym Up resize shrink height 10 px or 10 ppt
-        bindsym Right resize grow width 10 px or 10 ppt
-
-# back to normal: Enter or Escape
-	    bindsym Return mode "default"
-        bindsym Escape mode "default"
+    # back to normal: Enter or Escape
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
 }
 
 bindsym $mod+r mode "resize"
@@ -366,7 +356,7 @@ for_window [class=TeamSpeak3] focus
 # For modifications, it can be copied to ~/.config/picom/picom.conf or ~/.config/picom.conf
 # install picom package (yay -S picom)
 # start using default config 
-exec_always --no-startup-id picom -b
+#exec_always --no-startup-id picom -b
 #
 # for custom config:
 # exec_always --no-startup-id picom --config  ~/.config/picom.conf
@@ -484,35 +474,6 @@ for_window [class="urxvt"] border pixel 1
 # set position of floating window
 #for_window [class=".*"] move position center
 
-######################################
-# color settings for bar and windows #
-######################################
-
-# Define colors variables:
-#set $darkbluetrans	#08052be6
-#set $darkblue		#08052b
-#set $lightblue		#5294e2
-#set $urgentred		#e53935
-#set $white		    #ffffff
-#set $black		    #000000
-#set $purple		    #e345ff
-#set $darkgrey		#383c4a
-#set $grey		    #b0b5bd
-#set $mediumgrey		#8b8b8b
-#set $yellowbrown	#e1b700
-#
-#set $background     #24283b
-#set $numbers        #cfc9c2
-#set $control        #bb9af7
-
-# define colors for windows:
-#class		        	border		bground		text		indicator	child_border
-#client.focused		    	$lightblue	$darkblue	$white		$mediumgrey	$mediumgrey
-#client.unfocused	    	$darkblue	$darkblue	$grey		$darkgrey	$darkgrey
-#client.focused_inactive		$darkblue	$darkblue	$grey		$black		$black
-#client.urgent		    	$urgentred	$urgentred	$white		$yellowbrown	$yellowbrown
-
-
 # Modern macOS Dark Mode color palette
 set $background     #1c1c1e
 set $accent_blue    #0a84ff
@@ -530,7 +491,7 @@ client.focused_inactive $border_dark   $background  $text_muted $border_dark  $b
 client.urgent           $error_red     $background  $text_light $error_red    $error_red
 
 bar {
-    font pango: SF Pro Text 10
+    font pango: FiraCode Regular 10
     status_command i3blocks -c ~/.config/i3/i3blocks.conf
     position top
     tray_padding 4
@@ -556,30 +517,6 @@ bar {
 # https://gist.github.com/lopspower/03fb1cc0ac9f32ef38f4
 # #08052be6 --> e6=90%
 
-# bar {
-#	font pango: Noto Sans Regular 10
-#	status_command i3blocks -c ~/.config/i3/i3blocks-2.conf
-#	i3bar_command i3bar --transparency
-#	output HDMI-0
-#	position bottom
-#
-# When strip_workspace_numbers is set to yes,
-# any workspace that has a name of the form
-# “[n][:][NAME]” will display only the name.
-#strip_workspace_numbers yes
-##strip_workspace_name no
-#
-#	colors {
-#		separator          $purple
-#		background         $darkbluetrans
-#        	statusline         $white
-#					border		bg		txt		indicator
-#		focused_workspace	$lighterblue	$lighterblue	$darkblue	$purple
-#		active_workspace	$lightdblue	$lightdblue	$darkblue	$purple
-#		inactive_workspace	$darkblue	$darkblue	$lightdblue	$purple
-#		urgent_workspace	$urgentred	$urgentred	$white		$purple
-#	}
-#}
 
 #####################################
 # Application menu handled by rofi: #
